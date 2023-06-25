@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 // 配置@别名
-import { resolve } from "path"; 
+import path from "path"; 
 //element-plus 按需导入
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
@@ -34,7 +34,8 @@ export default defineConfig({
   resolve: {
     // ↓路径别名
     alias: {
-      "@": resolve(__dirname, "./src")
+      "@": path.resolve(__dirname, "src"),
+      '@api': path.resolve(__dirname, 'src/request/api'),
     }
   },
   css: {
@@ -50,7 +51,20 @@ export default defineConfig({
   server: {
     port: 4000,//服务端口号
     open: true,//服务启动时自动打开浏览器
-    cors: true//允许跨域
- 
+    cors: true,//允许跨域
+    // 代理
+    // proxy: {
+    //   '/api': { // 匹配请求路径，
+    //       target: '你要代理的地址', // 代理的目标地址
+    //        // 开发模式，默认的127.0.0.1,开启后代理服务会把origin修改为目标地址
+    //       changeOrigin: true,
+    //       // secure: true, // 是否https接口
+    //       // ws: true, // 是否代理websockets
+
+    //       // 路径重写，**** 如果你的后端有统一前缀(如:/api)，就不开启；没有就开启
+    //       //简单来说，就是是否改路径 加某些东西
+    //       rewrite: (path) => path.replace(/^\/api/, '') 
+    //   }
+    // }
   }
 })

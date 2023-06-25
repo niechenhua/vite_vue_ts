@@ -5,3 +5,5 @@ declare module "*.vue" {
     export default Component;
 }
 declare module "element-plus";
+declare module '@';
+declare module '@api'

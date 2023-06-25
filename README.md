@@ -1,18 +1,26 @@
 # Vue 3 + TypeScript + Vite
+1、vite创建vue3项目
+   npm create vite@latest 或者 yarn create vite
+2、安装less/sass依赖
+   npm add -D less   或者 npm add -D sass 本项目运用sass
+3、自动导入，使用之后,不用导入vue中hook reactive ref
+   npm install -D unplugin-vue-components unplugin-auto-import
+4、安装路由
+   npm install vue-router@4 
+5、安装pinia，因为是vue3+ts，安装pinia更好点，vuex拥抱ts没有pinia好
+   npm install pinia 
+6、配置@别名
+   alias: {"@": resolve(__dirname, "./src")}
+7、添加Element Plus组件库
+   npm install element-plus --save
+8、安装并封装axios
+   npm install axios
+   
+ts兼容问题
+1、ts兼容.vue后缀文件
+   tsconfig.jsopn-include添加"types/**/*.d.ts"
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+配置问题
+1、打包以及服务站点信息配置在vite.config.ts配置
 
-## Recommended IDE Setup
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Type Support For `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
