@@ -23,6 +23,3 @@ ts兼容问题
 配置问题
 1、打包以及服务站点信息配置在vite.config.ts配置
 
-
-# vite_vue_ts
-基于vite/vue3.0/ts的项目
